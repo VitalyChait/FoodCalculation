@@ -1,0 +1,116 @@
+# YML File
+
+NTRcode_to_attributes:
+  CA: Calcium
+  SUGAR.added: Added sugar
+  CHOCDF: Carbohydrate
+  CHOLE: Cholesterol
+  ENERC_KCAL: Energy
+  FAMS: monounsaturated
+  FAPU: polyunsaturated
+  FAT: Fat
+  FASAT: saturated
+  FATRN: trans
+  FIBTG: Fiber
+  FOLFD: Folate
+  FOLAC: Folic acid
+  FE: Iron
+  MG: Magnesium
+  NIA: Niacin
+  P: Phosphorus
+  K: Potassium
+  PROCNT: Protein
+  RIBF: Riboflavin
+  NA: Sodium
+  Sugar.alcohol: Sugar alcohols
+  SUGAR: Sugars
+  THIA: Thiamin
+  FAT Total: FatTotal
+  VITA_RAE: Vitamin A
+  VITB12: Vitamin B-12
+  VITB6A: Vitamin B-6
+  VITC: Vitamin C
+  VITD: Vitamin D
+  TOCPHA: Vitamin E
+  VITK1: Vitamin K
+  WATER: Water
+  ZN: Zinc
+
+attributes_to_NTRcode:
+  Calcium: CA
+  Added sugar: SUGAR.added
+  Carbohydrate: CHOCDF
+  Cholesterol: CHOLE
+  Energy: ENERC_KCAL
+  Fat: FAT
+  monounsaturated: FAMS
+  polyunsaturated: FAPU
+  saturated: FASAT
+  trans: FATRN
+  Fiber: FIBTG
+  Folate: FOLFD
+  Folic acid: FOLAC
+  Iron: FE
+  Magnesium: MG
+  Niacin: NIA
+  Phosphorus: P
+  Potassium": K
+  Protein: PROCNT
+  Riboflavin: RIBF
+  Sodium: NA
+  Sugar alcohols: Sugar.alcohol
+  Sugars: SUGAR
+  Thiamin: THIA
+  FatTotal: FAT Total
+  Vitamin A: VITA_RAE
+  Vitamin B-12: VITB12
+  Vitamin B-6: VITB6A
+  Vitamin C: VITC
+  Vitamin D: VITD
+  Vitamin E: TOCPHA
+  Vitamin K: VITK1
+  Water: WATER
+  Zinc: ZN
+
+
+NTR_meassurments:
+  NTR Code: Unit
+  SUGAR.added: g
+  CA: mg
+  CHOCDF.net: g
+  CHOCDF: g
+  CHOLE: mg
+  ENERC_KCAL: kcal
+  FAMS: g
+  FAPU: g
+  FASAT: g
+  FATRN: g
+  FIBTG: g
+  FOLDFE: µg
+  FOLFD: µg
+  FOLAC: µg
+  FE: mg
+  MG: mg
+  NIA: mg
+  P: mg
+  K: mg
+  PROCNT : g
+  RIBF : mg
+  NA: mg
+  Sugar.alcohol: g
+  SUGAR: g
+  THIA: mg
+  FAT: g
+  VITA_RAE: µg
+  VITB12: µg
+  VITB6A: mg
+  VITC: mg
+  VITD: µg
+  TOCPHA: mg
+  VITK1: µg
+  WATER: g
+  ZN: mg
+
+
+
+

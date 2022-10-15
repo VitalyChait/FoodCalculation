@@ -1,0 +1,65 @@
+{% extends 'main/base.html' %} {% block title %}Active Searching Food{% endblock %}
+{% block content %}
+    {% if searched %}
+        <h1 style="position: relative; text-align: center; right: 7.5%;">You Searched For "{{ searched }}"</h1>
+        <br/>
+    {% if lastFoodSearchActive %}
+        <h2>
+        <form method="POST">
+            <button type="submit" class="btn btn-success" name="lastFoodSearchLabels" value="1">Continue the old research  ({{ searched }})</button>
+    {% csrf_token %}
+        </form>
+        </h2>
+    {% endif %}
+    <form method="POST">
+    {% csrf_token %}
+        {% for item in labels %}
+            <div style="width: 85%; display: inline-block" class="input-group mb-3">
+            {% if forloop.first %}
+                    <button style="float: left;" onclick="history.back()" class="btn btn-secondary">Go Back</button>
+                <button style="float: right;" type="submit" class="btn btn-primary">Submit</button>
+                <br/>
+                <br/>
+            {% endif %}
+
+                <span class="input-group-text">
+                    {% if forloop.first %}
+                    <input style="width: 2%;" class="form-check-input mt-0" type="checkbox" value="{{ forloop.counter0 }}_{{ item.1 }}" id="flexSwitchCheckDefault_{{ forloop.counter0 }}" name="choices" checked>
+                    {% else %}
+                    <input style="width: 2%;" class="form-check-input mt-0" type="checkbox" value="{{ forloop.counter0 }}_{{ item.1 }}" name="choices" id="flexSwitchCheckDefault_{{ forloop.counter0 }}">
+                    {% endif %}
+                    <label style="width: 46%; text-align: left;" class="form-check-label" for="flexSwitchCheckDefault_{{ forloop.counter0 }}"> &emsp;<strong>{{ item.0 }}</strong> </label>
+
+                <label style="width: 10%; float:right" class="form-check-label" for="quantity_{{ forloop.counter0 }}"> &emsp; Quantity </label>
+                {% if forloop.first %}
+                <input style="width: 20%;" type="number" class="form-control" name="namequantity" id="quantity_{{ forloop.counter0 }}"aria-label="Text input with checkbox" placeholder="Enter Quantity" value="1">
+                {% else %}
+                <input style="width: 20%;" type="number" class="form-control" name="namequantity" id="quantity_{{ forloop.counter0 }}"aria-label="Text input with checkbox" placeholder="Enter Quantity">
+                {% endif %}
+
+                &emsp;
+                    <select style="width: 20%; float:right" class="form-select" id="inputGroupSelect01_{{ forloop.counter0 }}" name="GroupPicks">
+                        <option selected value="100">100 gram</option>
+                        {% for measure in item.2 %}
+                            <option value="{{ measure.weight }}">{{ measure.label }} ({{ measure.weight }} gram)</option>
+                        {% endfor %}
+                    </select>
+                <input type="hidden" name="food_name" value="{{ item.0 }}">
+                </span>
+
+            {% if forloop.last %}
+            <br/>
+            <button style="float: left;" onclick="history.back()" class="btn btn-secondary">Go Back</button>
+            <button style="float: right;" type="submit" class="btn btn-primary">Submit</button>
+            {% endif %}
+
+            </div>
+            {% empty %}
+            <p>Could not find any items with your search</p>
+        {% endfor %}
+        </form>
+    {% else %}
+        <h1> Could not understand your request </h1>
+        <button onclick="history.back()" class="btn btn-secondary">Go Back</button>
+    {% endif %}
+{% endblock %}

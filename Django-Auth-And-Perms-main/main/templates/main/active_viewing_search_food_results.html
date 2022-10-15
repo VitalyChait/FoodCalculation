@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %} {% block title %}Active Viewing Food Results {% endblock %}
+{% block content %}
+<table class="table table-striped table-hover">
+<figure class="text-center">
+    <thead>
+        <tr class="table-primary">
+        <th style="width: 26%;">Food Name</th>
+        <th style="width: 3%;">Grams</th>
+        <th style="width: 3%;">Energy</th>
+        <th style="width: 3%;">Fat</th>
+        <th style="width: 3%;">Carbohydrate</th>
+        <th style="width: 3%;">Protein</th>
+        <th style="width: 3%;">Fiber</th>
+        <th style="width: 3%;">Sugars</th>
+        <th style="width: 3%;">Sodium</th>
+        <th style="width: 20%;">Diary</th>
+        <th style="width: 15%;">Add</th>
+        <th style="width: 15%;">Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for elem in data %}
+        <tr>
+            <td>{{ elem.food_name }}</td>
+            <td>{{ elem.Grams }}</td>
+            <td>{{ elem.Energy }}</td>
+            <td>{{ elem.Fat }}</td>
+            <td>{{ elem.Carbohydrate }}</td>
+            <td>{{ elem.Protein }}</td>
+            <td>{{ elem.Fiber }}</td>
+            <td>{{ elem.Sugars }}</td>
+            <td>{{ elem.Sodium }}</td>
+
+            <form method="post">
+            {% csrf_token %}
+            <td class="table-info">
+                <select class="form-select" id="inputGroupSelect01_{{ forloop.counter0 }}" name="DiaryNumber">
+                    <option selected value="None"> --- </option>
+                    {% for diary in userDiaries %}
+                    <option value="{{ diary.id }}"> {{ diary.diary_name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+            <td class="table-success"><button type="submit" class="btn btn-success" name="FoodToAdd" value="{{elem}}"> +diary</button></td>
+            <td class="table-warning"><button type="submit" class="btn btn-danger" name="FoodToDelete" value="{{elem}}"> -diary</button></td>
+            </form>
+        </tr>
+        {% endfor %}
+    </tbody>
+</figure>
+</table>
+{% endblock %}

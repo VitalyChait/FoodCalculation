@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %} {% block title %}Search Food{% endblock %}
+{% load crispy_forms_tags %} {% block content %}
+<form method="post">
+  {% csrf_token %}{{form|crispy}}
+  <button type="submit" class="btn btn-success">Search</button>
+</form>
+    {% if lastFoodSearch %}
+        <form method="post">
+        {% csrf_token %}
+            <input type="hidden" name="lastFoodSearch" value="{{ lastFoodSearch }}">
+            <button type="submit" class="btn btn-success">Research  ({{ lastFoodSearch }})</button>
+        </form>
+    {% endif %}
+{% endblock %}
